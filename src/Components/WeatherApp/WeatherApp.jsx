@@ -39,7 +39,7 @@ const WeatherApp = () => {
 
         humidity.innerHTML = data.main.humidity;
         wind.innerHTML = data.wind.speed;
-        temperature.innerHTML = data.main.temp;
+        temperature.innerHTML = `${data.main.temp}&deg;C`; // Display temperature with degree symbol and Celsius
         location.innerHTML = data.name;
 
         switch (data.weather[0].icon) {
@@ -49,11 +49,13 @@ const WeatherApp = () => {
             break;
           case "02d":
           case "02n":
+            setWicon(cloud_icon);
+            break;
           case "03d":
           case "03n":
           case "04d":
           case "04n":
-            setWicon(cloud_icon);
+            setWicon(drizzle_icon);
             break;
           case "09d":
           case "09n":
@@ -87,7 +89,7 @@ const WeatherApp = () => {
       <div className="weather-image">
         <img src={wincon} alt="" />
       </div>
-      <div className="weather-temp">24°C</div>
+      <div className="weather-temp">24&deg;C</div>
       <div className="weather-location">London</div>
       <div className="data-container">
         <div className="element">
